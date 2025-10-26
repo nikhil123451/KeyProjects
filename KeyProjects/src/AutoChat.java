@@ -6,101 +6,53 @@ import javax.swing.JFrame;
 import java.util.Random;
 
 public class AutoChat extends JFrame implements KeyListener {
-    private static final int INTERVAL = 22000; // 22 seconds
+    private static final int INTERVAL = 5000; //5 seconds
     private static final String[] PHRASES = {
         "ok",
         "no",
-        "wild",
-        "crazy",
-        "imagine",
+        "that is crazy",
+        "can you imagine?",
         "bruh",
-        "what",
+        "what?",
         "huh",
         "hm?",
-        "hm",
-        "hmmmmm?",
+        "hm...",
         "pardon?",
         "oh, ok",
-        "hmmmmm, ok",
+        "hm, ok",
         "sure",
         "right",
         "right, ok",
         "right then",
-        "bruhh",
         "nope",
-        "nuhuh",
         "yup",
-        "yuhuh",
-        "insane",
+        "this is insane",
         "mhm",
-        "mmmmm",
         "ah",
-        "oh noes",
+        "oh no",
         "oh",
-        "ooooo",
-        "that's wild",
-        "thas cool",
+        "ooo",
+        "that's cool",
         "really?",
-        "nahhh",
-        "ahh",
-        "no wait what",
-        "idk",
-        "yay",
-        "yippee",
+        "wait, what?",
+        "i don't know",
         "wow",
-        "oo, spooky",
         "seriously?",
         "that's so sad",
-        "please",
-        "pls",
-        "don't do it",
-        "badum pow",
         "that did not make sense",
-        "heh",
         "very good",
         "very cool",
-        "goop",
-        "goober",
-        "gooberro",
-        "i dunno",
-        "dunno",
         "uh huh",
-        "yuuup",
         "indeed",
-        "k",
-        "funny",
-        "bip bap skdoo bep",
-        "my home...",
-        "fr",
-        "ok pal",
-        "ok bud",
-        "ok buddy",
-        "sure pal",
-        "sure bud",
-        "sure buddy",
-        "mate,",
-        "ight mate",
-        "alrighty mate",
-        "very coolio",
-        "aw",
+        "that's funny",
         "unfortunate",
-        "ehehehehhehe",
-        "straight ballin'",
-        "baller",
-        "ballin'",
-        "imagine not",
-        "could not be me",
-        "could be me",
         "agreed",
         "sorry",
-        "mb",
         "whoops",
         "apologies",
         "my condolences",
         "yeah",
         "good",
-        "bro",
-        "brooooo",
         "oh?"
     };
     
@@ -111,14 +63,13 @@ public class AutoChat extends JFrame implements KeyListener {
             Robot robot = new Robot();
             Random random = new Random();
             
-            // Initialize JFrame and add KeyListener
+            //initializing a JFrame and adding a KeyListener
             AutoChat frame = new AutoChat();
             frame.setSize(400, 400);
             frame.setVisible(true);
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             
-            System.out.println("Starting in 5 seconds...");
-            Thread.sleep(5000); // Wait 5 seconds before starting
+            Thread.sleep(5000); //initial delay of 5 seconds
             
             while (running) {
                 String randomPhrase = getRandomPhrase(random);
@@ -147,7 +98,6 @@ public class AutoChat extends JFrame implements KeyListener {
             int keyCode = getKeyCode(c);
             
             if (keyCode == -1) {
-                System.out.println("Skipping unsupported character: " + c);
                 continue;
             }
             
@@ -164,7 +114,7 @@ public class AutoChat extends JFrame implements KeyListener {
             }
             
             try {
-                Thread.sleep(100); // Small delay between key presses
+                Thread.sleep(100);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -223,12 +173,7 @@ public class AutoChat extends JFrame implements KeyListener {
     }
     
     @Override
-    public void keyPressed(KeyEvent e) {
-        if (e.getKeyCode() == KeyEvent.VK_P && e.isControlDown()) {
-            System.out.println("Ctrl + P detected. Exiting...");
-            running = false;
-        }
-    }
+    public void keyPressed(KeyEvent e) {}
     
     @Override
     public void keyReleased(KeyEvent e) {}
